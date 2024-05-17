@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Engineering</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ysabeau+SC:wght@600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 56px;
+  /*font-family: Arial, Helvetica, sans-serif;*/
+  font-family: 'Montserrat', sans-serif;;
+}
+.header {
+  text-align: center;
+  padding: 20px;
+}
+
+.row {
+  display: -ms-flexbox; /* IE 10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE 10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  -ms-flex: 50%; /* IE 10 */
+  flex: 50%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+
+/*ADDED NEW Heading*/
+h1 {
+  font-family: system-ui, sans-serif;
+  font-size: 50px;
+  text-align: center;
+}
+iframe
+{
+  border-radius: 25px;
+}
+.column
+{
+  padding: 1%;
+}
+
+.text-reveal {
+  --animation-duration: 2s;
+  --animation-delay: 1s;
+  
+  --1-fill-color: transparent;
+  --1-stroke-color: navy;
+  --1-stroke-size: 1px;
+  
+  --2-fill-color: navy;
+  --2-stroke-color: white;
+  --2-stroke-size: 1px;
+ 
+  --lines-color: white;
+  --lines-size: 2px;
+  
+  --text-padding: 0.5rem 1rem;
+  
+  display: grid;
+  
+  &::after, & > span { 
+    grid-area: 1/1;
+    animation: var(--animation-name) var(--animation-duration) ease-in-out var(--animation-delay) forwards }
+  
+  > span {
+    padding: var(--text-padding);
+    color: var(--color);
+    opacity: 0; 
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-image: var(--mask-image);
+    -webkit-mask-composite: var(--mask-composite-webkit);
+    -webkit-mask-size: var(--mask-size);
+    
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-image: var(--mask-image);
+    mask-composite: var(--mask-composite);
+    
+    &:nth-child(1) {
+      -webkit-text-stroke: var(--1-stroke-size) var(--1-stroke-color);
+      --color: var(--1-fill-color);
+      --mask-image: linear-gradient(white 0 0), linear-gradient(white 0 0);
+      --mask-composite-webkit: destination-out;
+      --mask-composite: exclude;
+      --animation-name: text-reveal-1;
+      
+    }
+    &:nth-child(2){
+      -webkit-text-stroke: var(--2-stroke-size) var(--2-stroke-color);
+      --color: var(--2-fill-color);
+      --mask-image: linear-gradient(white 0 0);
+      --animation-name: text-reveal-2;
+    }
+
+  }
+  &::after{
+    content: "";
+    z-index: 2;
+    border: var(--lines-size) solid var(--lines-color);
+    border-block: none;
+    width: 100%;
+    justify-self: center;
+    opacity: 0; 
+    --animation-name: text-reveal-lines;
+  }
+}
+@keyframes text-reveal-1 { 
+  0%, 100% { -webkit-mask-size: 100% 100%, 100%; mask-size: 100% 100%, 100%; opacity: 1 }
+  50% { -webkit-mask-size: 0% 100%, 100%; mask-size: 100% 100%, 100% } 
+}
+@keyframes text-reveal-2 { 
+  0%, 50% { -webkit-mask-size: 0% 100%; mask-size: 0% 100%; opacity: 1 }
+  100% { -webkit-mask-size: 100% 100%; mask-size: 100% 100%; opacity: 1  } 
+}
+@keyframes text-reveal-lines { 
+  5%, 95% { opacity: 1 } 
+  50% { width: 0 } 
+}
+
+
+*, *:before, *::after { margin: 0; padding: 0; box-sizing: border-box }
+.hero { 
+  min-height: 100px;
+  background-color: white;
+  display: grid;
+  place-items: center;
+}
+
+/*header main*/
+.Header-container{
+            display:flex;
+            position: fixed;
+            border: 15px;
+            height: 90px;
+            width: 100%;
+            top:0;
+            left:0;
+            z-index: 100;
+            }
+.item{      /*header contents*/
+            justify-content: center;
+            align-self: center;
+            width: 70px;
+            padding: 14px 16px;
+            margin-right: 25px;
+        }
+.item1{
+            flex-grow:3;
+            padding-left:5px;
+        }
+/*header main end*/
+/*dropdown*/
+.Header-container
+        {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 15px;
+        }
+        .navbar a:hover,.item.item2:hover
+        {
+            background-color: skyblue;
+        }
+        .dropdown {
+            float: left;
+            overflow: hidden;
+            padding-right: 30px;
+        }
+        .dropdown .dropbtn {
+            font-size: 16px;  
+            border: none;
+            outline: none;
+            color: black;
+            padding: 20px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+        .item.item2
+        {            
+            height: 60px;
+            padding-top: 20px;
+            padding-right: 35px;
+        }
+        .navbar a:hover, .dropdown:hover .dropbtn{
+             background-color: skyblue;
+        }
+        a{
+            color: black;
+            text-decoration: none;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        .dropdown-content a:active {
+            background-color: skyblue;
+        }
+        .dropdown:hover .dropdown-content {
+             display: block;
+        }
+/*dropdown end*/
+
+</style>
+<body>
+
+<!-- Header -->
+<div class="Header-container" style="background-color: white;">
+  <div class="item item1">
+      <img src="../static/logo.jpg" style="height:60px; width:120px" id="top">
+  </div>
+  <div class="item item2"><a href="../dashboard.html">Home</a></div>
+  <div class="dropdown">
+      <button class="dropbtn">Domain 
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="engineering.html">Engineering</a>
+        <a href="dsml.html">Data Science and Machine Learning</a>
+        <a href="hr.html">Human Resouces</a>
+        <a href="sales.html">Sales</a>
+        <a href="support.html">Support</a>
+        <a href="finance.html">Finance</a>
+        <a href="bia.html">Business Intelligence and Analytics</a>
+        <a href="banking.html">Banking</a>
+        <a href="management.html">Management</a>
+      </div>
+      </div> 
+  <div class="dropdown">
+      <button class="dropbtn">Location 
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="noida.html">Noida</a>
+        <a href="bangalore.html">Banglore</a>
+        <a href="chennai.html">Chennai</a>
+        <a href="gurugram.html">Gurugram</a>
+        <a href="mumbai.html">Mumbai</a>
+        <a href="pune.html">Pune</a>
+        <a href="hyderabad.html">Hyderabad</a>
+        <a href="delhi.html">Delhi</a>
+        <a href="kolkata.html">Kolkata</a>
+        <a href="chandigarh.html">Chandigarh</a>
+        <a href="remote.html">Remote</a>
+      </div>
+  </div>
+</div>
+
+<div class="header" id="myHeader">
+  <div class="hero">
+    <h1 class="text-reveal">
+      <span>Engineering</span>
+      <span aria-hidden="true">Engineering</span>
+    </h1>
+  </div>
+  <p>Change Grid View</p>
+  <br>
+  <button class="btn" onclick="one()">1</button>
+  <button class="btn active" onclick="two()">2</button>
+  <button class="btn" onclick="three()">3</button>
+</div>
+
+<!-- Photo Grid -->
+<div class="row"> 
+  <div class="column">
+    <iframe src="../charts/engineering_c1.html" width="100%" height="600"></iframe>
+  </div>
+  <div class="column">
+    <iframe src="../charts/engineering_c2.html" width="100%" height="600"></iframe> 
+  </div>
+  <div class="column">
+    <iframe src="../charts/engineering_c3.html" style="width:100%" height="600"></iframe>  
+  </div>
+  <!--<div class="column">
+    <iframe src="charts/dsml_c4.html" style="width:100%" height="600"></iframe>
+  </div>-->
+  <!--<div class="column">
+    <iframe src="charts/dsml_c3.html" style="width:100%" height="600"> </iframe>
+  </div>-->
+</div>
+
+<script>
+// Get the elements with class="column"
+var elements = document.getElementsByClassName("column");
+
+// Declare a loop variable
+var i;
+
+// Full-width images
+function one() {
+    for (i = 0; i < elements.length; i++) {
+    elements[i].style.msFlex = "100%";  // IE10
+    elements[i].style.flex = "100%";
+  }
+}
+
+// Two images side by side
+function two() {
+  for (i = 0; i < elements.length; i++) {
+    elements[i].style.msFlex = "50%";  // IE10
+    elements[i].style.flex = "50%";
+  }
+}
+
+// Three images side by side
+function three() {
+  for (i = 0; i < elements.length; i++) {
+    elements[i].style.msFlex = "30%";  // IE10
+    elements[i].style.flex = "30%";
+  }
+}
+
+
+// Add active class to the current button (highlight it)
+var header = document.getElementById("myHeader");
+var btns = header.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+
+</body>
+</html>

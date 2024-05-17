@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+    <title>JOBSPHERE ANALYTICS DASHBOARD</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ysabeau+SC:wght@600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <style> 
+        body{
+            padding-top: 56px;
+            font-family: 'Montserrat', sans-serif;;
+        }
+        .Header-container{
+            display:flex;
+            position: fixed;
+            border: 15px;
+            height: 60px;
+            width: 100%;
+            top:0;
+            left:0;
+            z-index: 100;
+            }
+        .Profiles{   /*Flexbox container for cards*/
+            display:flex;
+            justify-content: space-around;
+        }
+        .item{      /*header contents*/
+            justify-content: center;
+            align-self: center;
+            width: 70px;
+            padding: 14px 16px;
+        }
+        .item1{
+            flex-grow:3;
+            padding-left:5px;
+        }
+        .cover{
+            width:100%;
+            height:500px;
+            opacity:1;
+            /*filter:grayscale(10%);*/
+        }
+        .Image-container {
+            position: relative;
+            text-align: center;
+            color: black;
+        }
+        .centered {
+            font-family: 'Ysabeau SC', sans-serif;
+            color: navy;
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 70px;
+        }
+        .centered1{
+            font-family: 'Ysabeau SC', sans-serif;
+            color: white;
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 35px;
+        }
+        .centered2{
+            font-family: 'Ysabeau SC', sans-serif;
+            color: white;
+            position: absolute;
+            top: 95%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 10px;
+        }
+        a{
+            color: black;
+            text-decoration: none;
+        }
+        .card {   /*for best selling model*/
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+            width: 30%;
+        } 
+        .card1{   /*for keep reading*/
+            width: 300px;
+        }
+        .card:hover{
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+        .card1:hover{
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+        .Card-container{
+            padding: 5px 16px;
+        } 
+        .Card-container.card2
+        {
+            text-align: center;
+        }
+        
+        .End-container{
+            display: flex;
+            width: 100%;
+            height: 350px;
+            background-color: skyblue;
+        }
+        .part{
+            flex-grow:2;
+            justify-content:space-between;
+            text-align: center;
+        }
+        .footer{
+            display:flex;
+            background-color: skyblue;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .end1{
+            flex-grow:3;
+            text-align: left;
+        }
+        .end2{
+            flex-grow:2;
+            text-align: right;
+        }
+        /*dropdown*/
+        .Header-container
+        {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 15px;
+        }
+        .navbar a:hover,.item.item2:hover
+        {
+            background-color: skyblue;
+        }
+        .dropdown {
+            float: left;
+            overflow: hidden;
+            padding-right: 30px;
+        }
+        .dropdown .dropbtn {
+            font-size: 16px;  
+            border: none;
+            outline: none;
+            color: black;
+            padding: 20px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+        .item.item2
+        {            
+            height: 25px;
+            padding-top: 20px;
+        }
+        .navbar a:hover, .dropdown:hover .dropbtn{
+             background-color: skyblue;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        .dropdown-content a:active {
+            background-color: skyblue;
+        }
+        .dropdown:hover .dropdown-content {
+             display: block;
+        }
+    </style>
+    <body>
+<!--HEADER AND COVER IMAGE-->
+        <div class="Header-container" style="background-color: white;">
+            <div class="item item1">
+                <img src="static/logo.jpg" style="height:60px; width:120px" id="top">
+            </div>
+            <div class="item item2"><a href="dashboard.html">Home</a></div>
+            <div class="dropdown">
+                <button class="dropbtn">Domain 
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="fields/engineering.html">Engineering</a>
+                  <a href="fields/dsml.html">Data Science and Machine Learning</a>
+                  <a href="fields/hr.html">Human Resouces</a>
+                  <a href="fields/sales.html">Sales</a>
+                  <a href="fields/support.html">Support</a>
+                  <a href="fields/finance.html">Finance</a>
+                  <a href="fields/bia.html">Business Intelligence and Analytics</a>
+                  <a href="fields/banking.html">Banking</a>
+                  <a href="fields/management.html">Management</a>
+                </div>
+                </div> 
+            <!--THIS ADDED-->
+            <div class="dropdown">
+                <button class="dropbtn">Location 
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="fields/noida.html">Noida</a>
+                  <a href="fields/bangalore.html">Banglore</a>
+                  <a href="fields/chennai.html">Chennai</a>
+                  <a href="fields/gurugram.html">Gurugram</a>
+                  <a href="fields/mumbai.html">Mumbai</a>
+                  <a href="fields/pune.html">Pune</a>
+                  <a href="fields/hyderabad.html">Hyderabad</a>
+                  <a href="fields/delhi.html">Delhi</a>
+                  <a href="fields/kolkata.html">Kolkata</a>
+                  <a href="fields/chandigarh.html">Chandigarh</a>
+                  <a href="fields/remote.html">Remote</a>
+                </div>
+            </div>
+        </div>
+        <div class="Image-container">
+            <img class="cover" alt="Cover Face" src="static/main.jpg">
+            <div class="centered"><b>JOB SPHERE ANALYSIS</b></div>
+        </div>
+        <br><br>
+        <h1 style="text-align: center;">ABOUT</h1>
+        <p style="font-size: 20px;">A job analysis dashboard is a visual representation of key metrics and insights derived from the process of job analysis within an organization. It provides a dynamic and comprehensive overview of various job-related factors, including job roles, responsibilities, skill requirements, and performance indicators. This tool enables HR professionals and decision-makers to assess workforce needs, identify skill gaps, and streamline recruitment, training, and talent management strategies. Through inte
+            Through interactive charts and graphs, the job analysis dashboard offers a user-friendly interface for stakeholders to make data-driven decisions, ensuring alignment between organizational goals and the skills and competencies of the workforce.</p>
+<!--MODELS PART-->
+            <br><br>
+        <h1 style="text-align: center;">DOMAINS</h1>
+        <div class="Profiles">
+            <div class="card">
+                <a href="fields/engineering.html">
+                <img src="static/eng.jpg" alt="eng" style="width:100%">
+                <div class="Card-container">
+                    <h4><b>ENGINEERING</b></h4> 
+                    <p>Engineering is the application of scientific principles to design, build, and optimize structures, systems, and devices to address societal needs and challenges.</p> 
+                </div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="fields/dsml.html">
+                <img src="static/ds.jpg" alt="ds" style="width:100%">
+                <div class="Card-container">
+                    <h4><b>DATA SCIENCE AND MACHINE LEARNING</b></h4> 
+                    <p>Harnessing data to extract insights and make informed decisions, driving innovation and efficiency.</p> 
+                </div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="fields/hr.html">
+                <img src="static/hr-1.jpg" alt="hr" style="width:100%">
+                <div class="Card-container">
+                    <h4><b>HUMAN RESOURCES</b></h4> 
+                    <p>Focusing on talent acquisition, development, and management to cultivate a thriving and productive workforce.</p> 
+                </div>
+                </a>
+            </div>
+        </div> 
+        <br>
+        <div class="Profiles">
+            <div class="card">
+                <a href="fields/sales.html">
+                <img src="static/sales-1.jpg" alt="sales" style="width:100%">
+                <div class="Card-container">
+                    <h4><b>SALES</b></h4> 
+                    <p>Driving revenue through strategic relationships, effective communication, and successful product or service promotion.</p> 
+                </div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="fields/support.html">
+                <img src="static/support-1.jpg" alt="suport" style="width:100%">
+                <div class="Card-container">
+                    <h4><b>SUPPORT</b></h4> 
+                    <p>Ensuring customer satisfaction by providing timely, helpful, and personalized support.</p> 
+               </div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="fields/finance.html">
+                <img src="static/finance.jpg" alt="finance" style="width:100%">
+                <div class="Card-container">
+                    <h4><b>FINANCE</b></h4> 
+                    <p>Managing and optimizing financial resources to facilitate sound business decision-making and sustainable growth.</p> 
+                </div>
+                </a>
+            </div>
+        </div> 
+        <br>
+        <div class="Profiles">
+            <div class="card">
+                <a href="fields/bia.html">
+                <img src="static/bna.png" alt="bna" style="width:100%">
+                <div class="Card-container">
+                    <h4><b>BUSINESS INTELLIGENCE & ANALYTICS</b></h4> 
+                    <p>Utilizing data analysis to enhance organizational performance, efficiency, and strategic decision-making.</p> 
+                    
+                </div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="fields/banking.html">
+                <img src="static/banking.jpg" alt="banking" style="width:100%">
+                <div class="Card-container">
+                    <h4><b>BANKING</b></h4> 
+                    <p>Facilitating financial transactions, managing risks, and providing a range of financial services to individuals and businesses.</p> 
+                </div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="fields/management.html">
+                <img src="static/mang.jpg" alt="mang" style="width:100%">
+                <div class="Card-container">
+                    <h4><b>MANAGEMENT</b></h4> 
+                    <p>Guiding and coordinating teams to achieve organizational goals through effective leadership and decision-making.</p> 
+                </div>
+                </a>
+            </div>
+        </div>
+        <br><br><br>
+        <h1 style="text-align: center;">CREATORS</h1>
+        <div class="Profiles">
+            <div class="card">
+                <div class="Card-container card2">
+                    <h3><b>ANUSHA BHAT</b></h3> 
+                    <p>21103084</p> 
+                </div>
+            </div>
+            <div class="card">
+                <div class="Card-container card2">
+                    <h3><b>ANSHIKA</b></h3> 
+                    <p>21103083</p> 
+                </div>
+            </div>
+            <div class="card">
+                <div class="Card-container card2">
+                    <h3><b>GURKIRAN KAUR</b></h3> 
+                    <p>21103076</p> 
+                </div>
+            </div>
+        </div> 
+        
+        <br>
+        <hr>
+<!--CONNECT PART-->
+<!--
+        <div class="End-container">
+            <div class="part">
+                <p><b>Innovation</b></p>
+                <p>Audi Sport</p>
+                <p>Audi RS e-tron GT</p>
+                <p>Audi e-tron GT</p>
+                <p>Audi quattro</p>
+                <p>Audi e-tron hub</p>
+            </div>
+            <div class="part">
+                <p><b>Support</b></p>
+                <p>Careers</p>
+                <p>Press</p>    
+                <p>Audi Shop</p>  
+                <p>Imprint</p>   
+                <p>Corporate Governance</p> 
+                <p>Contact / Newsletter</p>
+            </div>
+            <div class="part">
+                <p><b>Customer Area</b></p>
+                <p>Audi Owners</p>
+                <p>Audi Service</p>
+                <p>myAudi Connect</p>
+                <p>Audi Club Rewards</p>
+                <p>Audi Concierge</p>
+                <p>Sustainability</p>
+                <p>Discover Audi from Home</p>
+                <p>Book a test drive</p>
+            </div>
+            
+        </div>-->
+        <hr>
+<!--FOOTER-->
+        <div class="footer">
+            <div class="end1">
+                <h3>&copy;JOBSPHERE ANALYTICS</h3>
+            </div>
+            <div class="end2">
+                <h4>Made by AAG</h4>
+            </div>
+        </div>
+    </body>
+</html>
